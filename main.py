@@ -32,7 +32,6 @@ if os.getenv("LLM_PROVIDER") == "openai" and not os.getenv("OPENAI_API_KEY"):
 def print_banner():
     """Print application banner"""
     print("\n" + "=" * 70)
-    print(" " * 15 + "PURPLE MERIT - AI/ML ENGINEER ASSESSMENT")
     print(" " * 18 + "Multi-Agent War Room Simulation")
     print("=" * 70)
     print(f"LLM Provider: {os.getenv('LLM_PROVIDER').upper()}")
