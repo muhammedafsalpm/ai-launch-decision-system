@@ -75,21 +75,31 @@ class Orchestrator:
         """Generate final structured decision using LLM"""
         
         system_prompt = """You are the war room coordinator making the final launch decision.
-        
-        Based on all agent inputs, produce a structured JSON decision.
-        
-        Decision options: "Proceed", "Pause", or "Roll Back"
-        
-        Return valid JSON with these exact keys:
-        - decision: string
-        - rationale: string (include specific metric references and feedback summary)
-        - risk_register: array of objects with "risk" and "mitigation" keys
-        - action_plan: array of objects with "action", "owner", and "timeline" keys
-        - communication_plan: object with "internal" and "external" keys
-        - confidence_score: number between 0 and 1
-        - confidence_increase_condition: string
-        
-        Be specific and actionable in your recommendations."""
+
+IMPORTANT: You must respond with ONLY valid JSON. No explanations, no markdown, just pure JSON.
+
+Decision must be exactly one of: "Proceed", "Pause", or "Roll Back"
+
+Return this exact JSON structure:
+{
+  "decision": "Pause",
+  "rationale": "Brief explanation with specific numbers",
+  "risk_register": [
+    {"risk": "Specific risk", "mitigation": "Specific mitigation"}
+  ],
+  "action_plan": [
+    {"action": "Specific action", "owner": "Team name", "timeline": "Timeframe"}
+  ],
+  "communication_plan": {
+    "internal": "Internal message",
+    "external": "External message"
+  },
+  "confidence_score": 0.8,
+  "confidence_increase_condition": "What would increase confidence"
+}
+
+Example response:
+{"decision": "Pause", "rationale": "Error rate up 137%", "risk_register": [{"risk": "Churn", "mitigation": "Rollback"}], "action_plan": [{"action": "Debug", "owner": "Eng", "timeline": "2h"}], "communication_plan": {"internal": "Reconvene 2h", "external": "Investigating"}, "confidence_score": 0.8, "confidence_increase_condition": "Root cause found"}"""
         
         user_prompt = f"""
         CONTEXT SUMMARY:
