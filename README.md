@@ -154,10 +154,3 @@ Feature description and known issues.
 ## 📝 Traceability
 All agent actions and tool calls are logged to console with `[TRACE]` prefix.
 
-## 🎥 Demo Video Requirements
-- Show terminal running `python main.py` or `python api.py`
-- Show final JSON output / API Decision response
-- No verbal explanation needed
-
-## 📄 License
-This project is part of the PurpleMerit AI/ML Engineer Assessment.
