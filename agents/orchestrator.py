@@ -102,32 +102,36 @@ Example response:
 {"decision": "Pause", "rationale": "Error rate up 137%", "risk_register": [{"risk": "Churn", "mitigation": "Rollback"}], "action_plan": [{"action": "Debug", "owner": "Eng", "timeline": "2h"}], "communication_plan": {"internal": "Reconvene 2h", "external": "Investigating"}, "confidence_score": 0.8, "confidence_increase_condition": "Root cause found"}"""
         
         user_prompt = f"""
-        CONTEXT SUMMARY:
-        
-        Feature: {context.get('metrics', {}).get('feature', 'Unknown')}
-        Launch Day: {context.get('metrics', {}).get('launch_day', 'Unknown')}
-        
-        DATA ANALYST FINDINGS:
-        {context['data_analyst'].get('summary', '')}
-        - Error Rate: {context['data_analyst'].get('error_analysis', {}).get('pct_change', 0)}% change
-        - Latency p95: {context['data_analyst'].get('latency_analysis', {}).get('pct_change', 0)}% change
-        - DAU: {context['data_analyst'].get('dau_analysis', {}).get('pct_change', 0)}% change
-        - Crash Rate: {context['data_analyst'].get('crash_analysis', {}).get('pct_change', 0)}% change
-        
-        MARKETING FINDINGS:
-        {context['marketing'].get('summary', '')}
-        - Sentiment Score: {context['marketing'].get('sentiment_analysis', {}).get('sentiment_score', 0)}
-        - Primary Issue: {context['marketing'].get('top_issues', {}).get('primary_issue', 'unknown')}
-        
-        PM ASSESSMENT:
-        {context['pm'].get('summary', '')}
-        - Success Criteria: {context['pm'].get('success_criteria_check', {})}
-        
-        RISK ASSESSMENT:
-        {context['risk'].get('challenges', '')}
-        
-        Based on ALL evidence above, what is your final decision?
-        """
+CONTEXT SUMMARY:
+
+Feature: {context.get('metrics', {}).get('feature', 'Unknown')}
+Launch Day: {context.get('metrics', {}).get('launch_day', 'Unknown')}
+
+DATA ANALYST FINDINGS:
+{context['data_analyst'].get('summary', '')}
+- Error Rate change: {context['data_analyst'].get('error_analysis', {}).get('pct_change', 0)}%
+- Latency p95 change: {context['data_analyst'].get('latency_analysis', {}).get('pct_change', 0)}%
+- DAU change: {context['data_analyst'].get('dau_analysis', {}).get('pct_change', 0)}%
+- Crash Rate change: {context['data_analyst'].get('crash_analysis', {}).get('pct_change', 0)}%
+
+MARKETING FINDINGS:
+{context['marketing'].get('summary', '')}
+- Sentiment Score: {context['marketing'].get('sentiment_analysis', {}).get('sentiment_score', 0)} (-1 to 1 scale)
+- Negative feedback: {context['marketing'].get('sentiment_analysis', {}).get('sentiment_distribution_percent', {}).get('negative', 0)}%
+
+PM ASSESSMENT:
+{context['pm'].get('summary', '')}
+
+RISK ASSESSMENT:
+{context['risk'].get('challenges', '')}
+
+DECISION GUIDELINES:
+- Choose "Roll Back" if: Error rate >100% increase AND DAU dropped >30% AND Negative sentiment >60%
+- Choose "Pause" if: Error rate 25-100% increase OR DAU dropped 10-30% OR Negative sentiment 30-60%
+- Choose "Proceed" if: Error rate <25% increase AND DAU stable AND Negative sentiment <30%
+
+Based on the actual metrics above, what is the CORRECT decision? Answer with JSON only.
+"""
         
         response = self.llm.chat_completion(
             system_prompt, 
