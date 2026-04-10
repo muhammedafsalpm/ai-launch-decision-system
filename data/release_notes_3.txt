@@ -1,0 +1,15 @@
+Release v4.0.0 - Payment Gateway Upgrade
+Deployed: April 8, 2026
+
+New Features:
+- Migrated to Stripe Connect v3 API
+- Support for multiple payment methods
+- Enhanced fraud detection
+
+Known Issues:
+- Webhook signature verification may fail under load
+
+Rollback Plan:
+- Feature flag: USE_NEW_PAYMENT_GATEWAY (currently ON)
+- Database migrations are NOT backward compatible - requires data fix
+- Rollback time: ~15 minutes + data reconciliation

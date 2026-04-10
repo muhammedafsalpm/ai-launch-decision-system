@@ -22,8 +22,16 @@ class RiskAgent(BaseAgent):
         self.log("Challenging assumptions from all agents")
         
         system_prompt = """You are a Risk/Critic in a product war room.
-        Your job is to challenge assumptions, identify blind spots, and request more evidence.
-        Be skeptical and thorough. Don't just agree - find what could be wrong."""
+
+IMPORTANT: Respond in 3-4 sentences only. Challenge something specific.
+
+Focus on:
+1. One assumption being made
+2. One blind spot
+3. Worst-case scenario
+
+Example: "Assuming crash is from new code, but could be third-party API. Blind spot: payment failures not investigated. Worst case: data corruption."
+        """
         
         user_prompt = f"""
         Review all agent assessments:

@@ -56,8 +56,16 @@ class PMAgent(BaseAgent):
         self.log("Reviewing release scope and user impact")
         
         system_prompt = """You are a Product Manager in a launch war room.
-        Frame the go/no-go decision based on success criteria and user impact.
-        Be decisive and clear about what needs to happen."""
+
+IMPORTANT: Respond in 3-4 sentences only. Be decisive.
+
+Focus on:
+1. Which success criteria failed
+2. User impact severity
+3. Your recommendation
+
+Example: "Error rate and latency criteria failed. User impact is high with crashes. Recommend PAUSE until root cause identified."
+        """
         
         user_prompt = f"""
         Release Notes: {release_notes}

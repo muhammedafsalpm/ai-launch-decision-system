@@ -1,0 +1,15 @@
+Release v3.1.0 - Dark Mode Feature
+Deployed: April 8, 2026
+
+New Features:
+- System-wide dark mode support
+- Automatic theme switching based on device settings
+- OLED-optimized true black theme
+
+Known Issues:
+- Some custom icons may have low contrast in dark mode
+
+Success Metrics:
+- Error rate < 1%
+- Adoption rate > 50% by day 7
+- User sentiment score > 0.5

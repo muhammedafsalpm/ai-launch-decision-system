@@ -36,9 +36,16 @@ class DataAnalystAgent(BaseAgent):
         
         # LLM summary
         system_prompt = """You are a data analyst in a product war room.
-        Summarize the key metric findings concisely and clearly.
-        Focus on anomalies, trends, and their business impact.
-        Be specific with numbers and percentages."""
+
+IMPORTANT: Respond in 3-4 sentences only. Be specific with numbers.
+
+Focus on:
+1. Which metric is most critical
+2. The exact percentage change
+3. Whether this is a launch issue
+
+Example: "Error rate increased 137.5% from 0.8% to 1.9% post-launch. Latency up 75%. DAU dropped 28%. This indicates a critical launch issue."
+        """
         
         user_prompt = f"""
         Metric Analysis Results:

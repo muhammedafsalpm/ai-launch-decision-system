@@ -1,0 +1,20 @@
+{
+  "feature": "Payment Gateway Upgrade",
+  "launch_day": 8,
+  "days": [
+    {"day": 1, "dau": 12400, "error_rate": 0.008, "latency_p95": 120, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 12, "payment_success": 0.98},
+    {"day": 2, "dau": 13100, "error_rate": 0.007, "latency_p95": 115, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 10, "payment_success": 0.97},
+    {"day": 3, "dau": 12800, "error_rate": 0.009, "latency_p95": 118, "adoption_rate": 0.0, "crash_rate": 0.002, "support_tickets": 14, "payment_success": 0.98},
+    {"day": 4, "dau": 13500, "error_rate": 0.006, "latency_p95": 122, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 9, "payment_success": 0.97},
+    {"day": 5, "dau": 14100, "error_rate": 0.008, "latency_p95": 119, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 11, "payment_success": 0.98},
+    {"day": 6, "dau": 13800, "error_rate": 0.007, "latency_p95": 116, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 13, "payment_success": 0.97},
+    {"day": 7, "dau": 14200, "error_rate": 0.008, "latency_p95": 121, "adoption_rate": 0.0, "crash_rate": 0.002, "support_tickets": 10, "payment_success": 0.98},
+    {"day": 8, "dau": 13500, "error_rate": 0.045, "latency_p95": 450, "adoption_rate": 0.05, "crash_rate": 0.025, "support_tickets": 89, "payment_success": 0.62},
+    {"day": 9, "dau": 9800, "error_rate": 0.062, "latency_p95": 680, "adoption_rate": 0.03, "crash_rate": 0.038, "support_tickets": 156, "payment_success": 0.41},
+    {"day": 10, "dau": 7200, "error_rate": 0.071, "latency_p95": 850, "adoption_rate": 0.02, "crash_rate": 0.042, "support_tickets": 203, "payment_success": 0.28},
+    {"day": 11, "dau": 5800, "error_rate": 0.068, "latency_p95": 790, "adoption_rate": 0.01, "crash_rate": 0.039, "support_tickets": 187, "payment_success": 0.31},
+    {"day": 12, "dau": 4900, "error_rate": 0.072, "latency_p95": 820, "adoption_rate": 0.01, "crash_rate": 0.041, "support_tickets": 178, "payment_success": 0.25},
+    {"day": 13, "dau": 4200, "error_rate": 0.069, "latency_p95": 780, "adoption_rate": 0.01, "crash_rate": 0.038, "support_tickets": 165, "payment_success": 0.29},
+    {"day": 14, "dau": 3800, "error_rate": 0.075, "latency_p95": 810, "adoption_rate": 0.01, "crash_rate": 0.043, "support_tickets": 159, "payment_success": 0.22}
+  ]
+}

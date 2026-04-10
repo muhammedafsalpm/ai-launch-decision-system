@@ -27,8 +27,16 @@ class MarketingAgent(BaseAgent):
         
         # LLM summary
         system_prompt = """You are a marketing/communications lead in a product war room.
-        Assess user perception and recommend communication actions.
-        Be specific about what messaging would help the situation."""
+
+IMPORTANT: Respond in 3-4 sentences only. Be specific.
+
+Focus on:
+1. Overall sentiment (positive/negative %)
+2. Top user complaint
+3. Whether we should communicate externally
+
+Example: "Sentiment is 60% negative with 'crash' as primary issue. Users are frustrated. Recommend acknowledging issue publicly within 2 hours."
+        """
         
         user_prompt = f"""
         Sentiment Analysis:
