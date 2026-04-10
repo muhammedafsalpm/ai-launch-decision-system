@@ -1,7 +1,7 @@
 # War Room Multi-Agent System
 
 ## 📋 Overview
-A production-ready multi-agent system that simulates a cross-functional "war room" during a product launch. The system analyzes metrics and user feedback to produce a structured launch decision: **Proceed / Pause / Roll Back**.
+A production-ready multi-agent system that simulates a cross-functional "war room" during a product launch. The system analyzes metrics and user feedback to produce a structured launch decision: **Proceed / Pause / Roll Back**. Built with an Orchestrator pattern and exposed via both a Command Line Interface (CLI) and a FastAPI REST API.
 
 ## 🏗️ Architecture
 ```
@@ -29,8 +29,8 @@ Input Data → Data Analyst → Marketing Agent → PM Agent → Risk Agent → 
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/yourusername/
-cd war-room-multi-agent
+git clone https://github.com/muhammedafsalpm/ai-launch-decision-system.git
+cd ai-launch-decision-system
 ```
 
 ### 2. Setup Environment
@@ -62,13 +62,39 @@ cp .env.example .env
 ```
 
 ### 4. Run the System
+
+The system supports two execution environments: CLI and REST API.
+
+**Mode A: CLI Execution**
+Run the orchestration flow on local files directly from the terminal.
 ```bash
 python main.py
 ```
 
+**Mode B: REST API Execution**
+Launch the FastAPI server to expose endpoints for the war room multi-agent simulation.
+```bash
+python api.py
+```
+*Interactive API Swagger documentation is available at `http://127.0.0.1:8000/docs`*
+
 ### 5. View Output
+
+**For CLI:**
+Results are saved locally in the `output/` directory as JSON files:
 ```bash
 cat output/AI_ML_Engineer_[YourName]_April2026.json
+```
+
+**For API:**
+You can interact with the API endpoints dynamically. For example, upload existing mock datasets via `curl`:
+```bash
+curl -X POST "http://127.0.0.1:8000/analyze/upload" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "metrics_file=@data/metrics.json" \
+  -F "feedback_file=@data/feedback.json" \
+  -F "release_notes_file=@data/release_notes.txt"
 ```
 
 ## 📊 Input Data Structure
@@ -87,6 +113,13 @@ cat output/AI_ML_Engineer_[YourName]_April2026.json
 
 ### `data/release_notes.txt`
 Feature description and known issues.
+
+## 🌐 REST API Endpoints
+
+- `GET /`: Retrieve base API information and available routes.
+- `GET /health`: Health check endpoint reflecting current LLM provider and API status.
+- `POST /analyze`: Submit structured evaluation targets (metrics, feedback lists) directly via JSON body payload.
+- `POST /analyze/upload`: Pass metrics, feedback, and release notes via multipart form file uploads to trigger agent evaluations.
 
 ## 📤 Output Format
 ```json
@@ -122,8 +155,8 @@ Feature description and known issues.
 All agent actions and tool calls are logged to console with `[TRACE]` prefix.
 
 ## 🎥 Demo Video Requirements
-- Show terminal running `python main.py`
-- Show final JSON output
+- Show terminal running `python main.py` or `python api.py`
+- Show final JSON output / API Decision response
 - No verbal explanation needed
 
 ## 📄 License
