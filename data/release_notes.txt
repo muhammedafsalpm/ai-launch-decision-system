@@ -1,0 +1,22 @@
+Release v3.2.0 - AI Recommendations Widget
+Deployed: April 8, 2026
+
+New Features:
+- Personalized product recommendations on homepage
+- New ML model for user preference prediction
+- Enhanced UI with dark mode support
+
+Known Issues:
+- Slight latency increase under high load
+- Dark mode flicker on some Android devices
+
+Rollback Plan:
+- Feature flag: ENABLE_AI_RECOMMENDATIONS can be toggled off
+- Database migrations are backward compatible
+- Rollback time: ~5 minutes
+
+Success Metrics Target:
+- Error rate < 1.5%
+- Latency p95 < 150ms
+- Adoption rate > 15% by day 7
+- User sentiment score > 0.2

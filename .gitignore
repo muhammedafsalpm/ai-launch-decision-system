@@ -1,0 +1,31 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output files (optional - can keep generated JSONs)
+output/*.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,20 @@
+{
+  "feature": "AI Recommendations Widget",
+  "launch_day": 8,
+  "days": [
+    {"day": 1, "dau": 12400, "error_rate": 0.008, "latency_p95": 120, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 12},
+    {"day": 2, "dau": 13100, "error_rate": 0.007, "latency_p95": 115, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 10},
+    {"day": 3, "dau": 12800, "error_rate": 0.009, "latency_p95": 118, "adoption_rate": 0.0, "crash_rate": 0.002, "support_tickets": 14},
+    {"day": 4, "dau": 13500, "error_rate": 0.006, "latency_p95": 122, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 9},
+    {"day": 5, "dau": 14100, "error_rate": 0.008, "latency_p95": 119, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 11},
+    {"day": 6, "dau": 13800, "error_rate": 0.007, "latency_p95": 116, "adoption_rate": 0.0, "crash_rate": 0.001, "support_tickets": 13},
+    {"day": 7, "dau": 14200, "error_rate": 0.008, "latency_p95": 121, "adoption_rate": 0.0, "crash_rate": 0.002, "support_tickets": 10},
+    {"day": 8, "dau": 13900, "error_rate": 0.012, "latency_p95": 145, "adoption_rate": 0.23, "crash_rate": 0.004, "support_tickets": 23},
+    {"day": 9, "dau": 12500, "error_rate": 0.018, "latency_p95": 178, "adoption_rate": 0.19, "crash_rate": 0.008, "support_tickets": 38},
+    {"day": 10, "dau": 11800, "error_rate": 0.022, "latency_p95": 210, "adoption_rate": 0.15, "crash_rate": 0.011, "support_tickets": 52},
+    {"day": 11, "dau": 11200, "error_rate": 0.019, "latency_p95": 195, "adoption_rate": 0.12, "crash_rate": 0.009, "support_tickets": 45},
+    {"day": 12, "dau": 10800, "error_rate": 0.021, "latency_p95": 205, "adoption_rate": 0.10, "crash_rate": 0.010, "support_tickets": 48},
+    {"day": 13, "dau": 10500, "error_rate": 0.020, "latency_p95": 198, "adoption_rate": 0.09, "crash_rate": 0.009, "support_tickets": 42},
+    {"day": 14, "dau": 10200, "error_rate": 0.019, "latency_p95": 200, "adoption_rate": 0.08, "crash_rate": 0.008, "support_tickets": 40}
+  ]
+}
